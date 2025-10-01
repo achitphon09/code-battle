@@ -1,0 +1,17 @@
+    return () => {
+      node.removeEventListener('input',handleInput);
+      jar.destroy();
+    };
+  }, [onCodeChange]);
+
+  return (
+    <div
+      ref={editorRef}
+      className="editor bg-slate-700 text-white p-4 rounded-lg"
+      style={{ minHeight: "1000px", fontSize: "16px", fontFamily: "monospace", overflowY:"auto", maxHeight:"1000px" }}
+    >
+    </div>
+  );
+};
+
+export default CodeEditor;
