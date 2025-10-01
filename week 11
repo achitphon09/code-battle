@@ -1,0 +1,31 @@
+ {/* <div className="absolute top-0 right-0 z-50">
+        <button 
+          className="flex justify-center items-center border border-white text-white p-2 px-4 m-4 rounded-xl transition duration-500 ease-in-out hover:-translate-y-1 hover:scale-110 hover:border-red-300 cursor-pointer" 
+          onClick={handleRefreshRooms}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-clockwise size-6 m-2 flex justify-center" viewBox="0 0 16 16">
+            <path fillRule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z" />
+            <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466" />
+          </svg>
+          รีเฟรช
+        </button>
+      </div> */}
+
+      <div className="z-10 flex flex-col items-center justify-center mt-5">
+        <p className="text-white text-4xl font-medium mb-5 mt-1">รวมรายการห้องแข่งขันทั้งหมด</p>
+      </div>
+
+      <div className=" overflow-x-auto shadow-xl sm:rounded-lg m-3">
+        <table className="w-full text-sm text-left text-black/50">
+          <thead className="text-xs bg-neutral-700 text-white border-b border-b-slate-800">
+            <tr>
+              <th scope="col" className="px-6 py-3 font-medium text-xl">ชื่อห้อง</th>
+              <th scope="col" className="px-6 py-3 font-medium text-xl">จำนวนผู้เล่น</th>
+              <th scope="col" className="px-6 py-3 font-light"> </th>
+            </tr>
+          </thead>
+          <tbody className='bg-slate-400/20 relative z-10'>
+            {Object.keys(rooms).length > 0 ? (
+              Object.keys(rooms).map((roomId) => {
+                const room = rooms[roomId];
+                const isFull = isRoomFull(room);
