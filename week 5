@@ -1,0 +1,25 @@
+ return (
+    <div className="min-h-screen relative">
+      <div className="absolute inset-0 -z-10">
+        <img src="/coding.jpg" className="w-full h-full object-cover object-center" />
+      </div>
+      {/* text-4xl font-bold bg-gradient-to-r from-red-600 via-purple-500 to-blue-600 text-transparent bg-clip-text mb-10 drop-shadow-lg */}
+      <div className="flex flex-col items-center justify-center min-h-screen px-4">
+        <h1 className="text-white text-3xl sm:text-4xl md:text-5xl mb-10 text-center">
+          กรุณาเลือกโหมดการเข้าใช้งาน
+        </h1>
+        <div className="flex flex-col md:flex-row flex-wrap w-full max-w-4xl justify-center gap-6">
+          <Link href="/game/lobby">
+            <div className="bg-white/50 backdrop-blur-xs rounded-xl shadow-lg w-full sm:w-80 md:w-64 border-4 border-transparent hover:border-white hover:scale-105 transition">
+              <img src="/lobby_wallpaper.jpg" className="rounded-t-xl object-cover w-full h-48" />
+              <div className="flex flex-col items-center justify-center text-center pt-2">
+                <i className="bi bi-people text-2xl"></i>
+                <p className="text-xl rounded-b-3xl p-2">Lobby</p>
+              </div>
+            </div>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
