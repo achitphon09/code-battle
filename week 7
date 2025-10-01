@@ -1,0 +1,59 @@
+export default function ChooseModePage() {
+  return (
+    <div className="h-screen bg-gray-50  flex flex-col">
+      <div className="absolute top-5 right-5">
+        <Link href="#">
+          <button className="bg-white shadow-md px-5 py-3 rounded-full mb-5 mt-5 z-10  
+      transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 cursor-pointer">ย้อนกลับ</button>
+        </Link>
+      </div>
+      <main className="flex-grow container mx-auto  px-4 py-8  flex flex-col item-center justify-center">
+        <p className="text-sm font-light text-center mb-1 mt-2 text-gray-600">CODE BATTLE</p>
+        <p className="text-black text-center mb-2 text-5xl font-medium">
+          Choose your mode
+        </p>
+        <p className="font-light text-xl text-center text-black mb-2 mt-2">เลือกโหมดที่ต้องการได้เลยครับ</p>
+
+        <div className="flex flex-col md:flex-row justify-center gap-4 mt-5">
+          <div className="bg-gradient-to-r from-indigo-500 via-fuchsia-300 to-red-500 shadow-md rounded-xl p-6 w-full max-w-sm">
+            <div className="mb-4 bg-white rounded-xl  my-2 shadow-md">
+              <div className="text-lg font-light mb-5 px-5 p-3">โหมดผู้เล่น</div>
+              <Link href="#">
+                <button className="bg-gradient-to-r from-blue-600 via-purple-900 to-red-600 text-white px-27 py-2 
+              rounded-3xl text-lg shadow-md hover:opacity-90 transition text-center justify-center mx-5 my-5 delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 cursor-pointer">
+                  โหมดผู้เล่น
+                </button>
+              </Link>
+            </div>
+            <div className="bg-white p-4 rounded-xl text-left text-sm text-gray-700 shadow-md font-light">
+              <p className="font-medium text-black">โหมดผู้เล่นคืออะไร ?</p><br />
+              สำหรับผู้ที่เข้าร่วมแข่งขัน Code Battle<br />
+              เมื่อเลือกโหมดนี้ ผู้เข้าแข่งขันจะต้อง Login<br />
+              ให้เรียบร้อยก่อนถึงจะทำการแข่งขันได้<br />
+              โดยจะมีโจทย์ และ เวลาที่กำหนด<br />
+              สามารถเลือกทำข้อไหนก่อนก็ได้
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-r from-blue-500 via-sky-300  to-blue-500 shadow-md rounded-xl p-6 w-full max-w-sm">
+            <div className="mb-4 bg-white rounded-xl  my-2 shadow-md">
+              <div className="text-lg font-light mb-5 px-5 p-3">โหมดผู้ชม</div>
+              <button className="bg-gradient-to-r from-blue-800 via-sky-300 to-cyan-800 text-white px-27 py-2 
+              rounded-3xl text-lg shadow-md text-center justify-center mx-5 my-5 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 cursor-pointer">
+                โหมดผู้ชม
+              </button>
+            </div>
+            <div className="bg-white p-4 rounded-xl text-left text-sm text-gray-700 shadow-md font-light">
+              <p className="font-medium text-black">โหมดผู้ชมคืออะไร ?</p><br />
+              สำหรับผู้ชมท่านใดที่ประสงค์ชมการแข่งขัน<br />
+              สามารถเลือกได้ที่โหมดนี้โดยไม่ต้อง Login<br />
+              หน้าจอจะแสดงผลต่างกับหน้าจอของผู้เข้าแข่งขัน<br />
+              โดยจะมีกราฟแสดงระหว่าง 2 ทีม<br />
+              และ ชื่อของผู้เข้าแข่งขัน
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+}
