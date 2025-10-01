@@ -1,0 +1,76 @@
+ return (
+    <div className="relative w-full h-full overflow-x-hidden">
+      <Navbar className='fixed top-0 w-full z-[100]' />
+      <div className="absolute inset-0 -z-10">
+      <img src="/Gradient_background.jpg" className="h-full w-full object-cover object-center"/>
+      </div>
+      <div className="absolute top-15 left-0 z-50">
+        <Link href='/game/lobby'>
+          <button className="flex justify-center items-center border border-white text-white p-2 px-4 m-4 rounded-xl transition duration-500 ease-in-out hover:-translate-y-1 hover:scale-110 hover:border-sky-300 cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6 m-2 flex justify-center">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
+            </svg>
+            ย้อนกลับ
+          </button>
+        </Link>
+      </div>
+
+      <div className="relative w-full min-h-screen inset-0 z-10 bg-transparent flex flex-col items-center justify-center text-white">
+        <p className="text-5xl flex flex-col items-center justify-center font-medium mb-2">สร้างห้อง</p>
+        <form onSubmit={handleSubmit} className="flex flex-col items-center">
+          <input
+            type="text"
+            placeholder="กรุณาใส่ชื่อห้อง"
+            value={roomname}
+            onChange={(e) => setRoomname(e.target.value)}
+            maxLength={30}
+            className="font-light text-center border border-white rounded-xl p-3 m-3 bg-transparent bg-opacity-50 text-white placeholder-gray-400"
+          />
+
+          <div className="flex flex-col items-center">
+            <div className="flex gap-3 m-2 mb-3">
+              <label className="flex items-center gap-2">
+                <input
+                  type="radio"
+                  name='game_mode'
+                  value="1vs1"
+                  checked={game_mode === "1vs1"}
+                  onChange={(e) => setGameMode(e.target.value)}
+                  className="accent-red-600"
+                /> 🧍 1v1
+              </label>
+
+              <label className="flex items-center gap-2">
+                <input
+                  type="radio"
+                  name='game_mode'
+                  value="2vs2"
+                  checked={game_mode === "2vs2"}
+                  onChange={(e) => setGameMode(e.target.value)}
+                  className="accent-blue-600"
+                />  🧑‍🤝‍🧑 2v2
+              </label>
+
+              <label className="flex items-center gap-2">
+                <input
+                  type="radio"
+                  name='game_mode'
+                  value="3vs3"
+                  checked={game_mode === "3vs3"}
+                  onChange={(e) => setGameMode(e.target.value)}
+                  className="accent-amber-600"
+                /> 👨‍👩‍👧 3v3
+              </label>
+            </div>
+            {error && <p className="text-red-500 mb-2 text-center">{error}</p>}
+            <button
+              type='submit'
+              className="border border-white p-2 px-4 rounded-xl transition duration-500 ease-in-out hover:-translate-y-1 hover:scale-110 hover:border-green-300 cursor-pointer">
+              ยืนยัน
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+}
