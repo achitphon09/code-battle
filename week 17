@@ -1,0 +1,53 @@
+ return (
+        <div className="relative bg-slate-950 w-full h-screen">
+            <div className="absolute top-0 left-0 z-50">
+                <Link href='/game/room_list'>
+                    <button className="flex justify-center items-center border border-white text-white p-2 px-4 m-4 rounded-xl transition duration-500 ease-in-out hover:-translate-y-1 hover:scale-110 hover:border-sky-300 cursor-pointer">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6 m-2 flex justify-center">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
+                        </svg>
+                        ย้อนกลับ
+                    </button>
+                </Link>
+            </div>
+
+            <div className="relative z-10 text-white flex flex-col items-center">
+                <div className='font-medium text-5xl mt-8'>โหมดผู้ชม</div>
+                <div className='font-medium text-xl mt-4'>room name :</div>
+
+                <ProgressBar
+                    team1Name="RED TEAM"
+                    team1Score={teamScores.team1}
+                    team2Name="BLUE TEAM"
+                    team2Score={teamScores.team2}
+                />
+
+                <div className='flex justify-around m-4 gap-3 w-full'>
+
+                    <div className="bg-red-600/50 flex-1 rounded-xl ml-2">
+                        <h2 className="text-red-300 text-xl font-medium flex flex-col justify-center items-center mt-2">Red Team</h2>
+                        <ul className='text-rose-400 p-3'>
+                            {/* {redTeamMembers.map((member) => (
+                            <li key={member.id}>
+                                {member.id} {member.id === userId && "(You)"}
+                            </li>
+                        ))} */}
+                        </ul>
+                    </div>
+
+                    <div className='bg-blue-600/50 flex-1 rounded-xl mr-2'>
+                        <h2 className="text-blue-300 text-xl font-medium flex flex-col justify-center items-center mt-2">Blue Team</h2>
+                        <ul className='text-cyan-400 p-3'>
+                            {/* {blueTeamMembers.map((member) => (
+                            <li key={member.id}>
+                                {member.id} {member.id === userId && "(You)"}
+                            </li>
+                        ))} */}
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    );
+}
