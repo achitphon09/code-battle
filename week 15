@@ -1,0 +1,67 @@
+return (
+    <div className="min-h-screen flex flex-col items-center">
+      <div className="fixed inset-0 -z-10">
+        <img src="/Gradient_background.jpg" className="h-full w-full object-cover object-center" />
+      </div>
+      <section className='w-full flex text-center justify-center'>
+        {
+          myInfo.team === 'Red Team' ? //if
+            <div className='bg-gradient-to-b from-red-800  via-red-400  to-red-200 text-transparent bg-clip-text font-semibold text-8xl m-10'>
+              {myInfo.team}
+            </div>
+            : myInfo.team === 'Blue Team' ? //else if
+              <div className='bg-gradient-to-b from-blue-800  via-blue-400  to-blue-200 text-transparent bg-clip-text font-semibold text-8xl m-10'>
+                {myInfo.team}
+              </div>
+              : //else
+              <div className='bg-gradient-to-b from-rose-800 via-fuchsia-400 to-sky-800 text-transparent bg-clip-text font-semibold text-8xl m-10'>
+                {`Loading...`}
+              </div>
+        }
+      </section>
+
+      {/* ส่วนของเวลานับถอยหลัง */}
+<span className="countdown font-medium text-6xl">
+  <span style={{"--value": time.hours}}>{String(time.hours).padStart(2,'0')}</span> :
+  <span style={{"--value": time.minutes}}>{String(time.minutes).padStart(2,'0')}</span> :
+  <span style={{"--value": time.seconds}}>{String(time.seconds).padStart(2,'0')}</span>
+</span>
+      {/* สิ้นสุดส่วนของเวลานับถอยหลัง */}
+
+      <ProgressBar
+        scoreRed={teamScores.Red}
+        scoreBlue={teamScores.Blue}
+        maxWinScore={teamScores.Win}
+      />
+
+      <div className=" flex flex-col md:flex-row gap-[20px] w-full max-w-7xl px-4">
+        {/* Left Side: Problem Description and Results */}
+        <div className="w-full md:w-1/2 lg:w-[40%] h-auto bg-slate-800 rounded-2xl p-4 text-white mb-5 flex flex-col gap-4">
+
+          <div className="bg-slate-700 rounded-2xl p-4">
+            <h1 className="text-xl font-medium">โจทย์</h1>
+            <h2 className="text-sm font-light">{currProblem.title}</h2>
+          </div>
+
+          {/* แยกส่วนแสดงผลประเภท */}
+          <div className="bg-slate-700 rounded-2xl p-4">
+            <h1 className="text-xl font-medium">ประเภท</h1>
+            <h2 className="text-sm font-light">{currProblem.type}</h2>
+          </div>
+
+          {/* แยกส่วนแสดงผลความยาก */}
+          <div className="bg-slate-700 rounded-2xl p-4">
+            <h1 className="text-xl font-medium">ความยาก</h1>
+            <h2 className="text-sm font-light">{currProblem.difficulty}</h2>
+          </div>
+
+          {/* แยกส่วนแสดงผลคะแนน */}
+          <div className="bg-slate-700 rounded-2xl p-4">
+            <h1 className="text-xl font-medium">คะแนน</h1>
+            <h2 className="text-sm font-light">{currProblem.score} points</h2>
+          </div>
+
+          <div className="bg-slate-700 rounded-2xl p-4">
+            <h1 className="text-xl font-medium">คำอธิบาย</h1>
+            <h2 className="text-sm font-light">{currProblem.description}</h2>
+          </div>
