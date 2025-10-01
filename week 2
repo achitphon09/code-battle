@@ -1,0 +1,119 @@
+return (
+    <div className="relative w-full min-h-screen overflow-x-hidden">
+      <canvas ref={ref} className="fixed inset-0 z-0 bg-transparent" />
+      <section className="relative w-full min-h-screen flex flex-col justify-center items-center text-white text-center z-20 bg-transparent">
+        <p className="text-2xl font-light mb-2">ยินดีต้อนรับสู่</p>
+        <p className="text-8xl font-extrabold mb-2">CODE BATTLE</p>
+        <p className="font-light text-2xl text-center  text-light mb-2 mt-2">เมื่อพร้อมแล้วกดปุ่มเริ่มการแข่งขันได้เลยครับ</p>
+        <div className="flex justify-center items-center">
+          <Link href="/login">
+            <button className="bg-gradient-to-r from-red-700 via-purple-500 to-blue-700 rounded-4xl pl-5 pr-5 p-3 mt-2 transition duration-500 ease-in-out hover:-translate-y-1 hover:scale-110 mb-10 cursor-pointer opacity-80 hover:opacity-100">
+              เริ่มการแข่งขัน
+            </button>
+          </Link>
+        </div>
+      </section>
+
+      <main className="relative  flex flex-col gap-10 items-center min-w-auto bg-gray-100 text-black px-4 pb-10 overflow-x-hidden">
+        <div className="flex gap-[20px] flex-col">
+          <div className="bg-white max-w-full grow h-auto text-black  rounded-2xl mt-4">
+            <div className="flex flex-col md:flex-row flex-wrap">
+              <div className="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-center items-left">
+                <h1 className="text-black font-medium text-3xl md:text-5xl mb-4">About us</h1>
+                <p className="text-black text-lg md:text-xl mb-2">
+                  มาทำความรู้จักกับ
+                  <span className="bg-gradient-to-r from-red-600 via-purple-500 to-blue-400 inline-block text-transparent bg-clip-text p-1 cursor-pointer">
+                    Code Battle
+                  </span>
+                </p>
+                <p className="text-black text-base md:text-lg font-light">
+                  แพลตฟอร์มเกมการแข่งขันเขียนโค้ดออนไลน์ที่จะท้าทายและพัฒนาทักษะ การเขียนโปรแกรมของคุณ!
+                  เราสร้าง Code Battle ขึ้นมาเพื่อเป็นพื้นที่ให้นักพัฒนาทุกระดับได้ฝึกฝน ท้าทายตัวเอง
+                  และพัฒนาทักษะการเขียนโค้ดให้ก้าวหน้ายิ่งขึ้น โดยมีวิสัยทัศน์ที่จะเป็นชุมชนนักพัฒนาที่รักการแข่งขันและเรียนรู้
+                </p>
+
+              </div>
+
+              <div className="w-full md:w-1/2 p-6 md:p-8 flex justify-center items-center">
+                <Image src="/multiplayer.jpg" width={500} height={500} alt="image about" className="rounded-2xl" />
+              </div>
+            </div>
+          </div>
+
+
+          <div className="bg-white max-w-full grow h-auto text-black  rounded-2xl ">
+            <div className="flex flex-row flex-wrap">
+              <div className="w-full md:w-1/2 p-8 order-1 md:order-2 flex flex-col justify-center">
+                <h2 className="text-black font-medium text-center text-4xl mb-1">ทำไมต้องเข้าร่วมกับเรา</h2>
+                <p className="text-black text-md text-left font-light mb-2">ไม่ว่าคุณจะเป็นนักศึกษา ผู้เริ่มต้นเขียนโค้ด หรือนักพัฒนาที่มีประสบการณ์
+                  Code Battle คือสนามประลองที่คุณสามารถมาทดสอบความสามารถและเรียนรู้สิ่งใหม่ ๆ ได้เสมอ</p>
+                <div className="flex gap-[4%] flex-col items-center justify-start">
+                  <div className="bg-slate-200 w-full grow mb-3 text-left font-light text-sm p-2 rounded-md">- พัฒนาทักษะ:ฝึกฝนการเขียนโค้ดและพัฒนาทักษะการแก้ปัญหา</div>
+                  <div className="bg-slate-200 w-full grow mb-3 text-left font-light text-sm p-2 rounded-md">- แข่งขันและเรียนรู้:ประลองฝีมือกับเพื่อนนักพัฒนา และเรียนรู้เทคนิคใหม่ ๆ</div>
+                  <div className="bg-slate-200 w-full grow mb-3 text-left font-light text-sm p-2 rounded-md">- โจทย์ที่หลากหลาย:พบกับโจทย์ปัญหาที่ครอบคลุมภาษาและระดับความยาก</div>
+                  <div className="bg-slate-200 w-full grow mb-3 text-left font-light text-sm p-2 rounded-md">- เข้าร่วมชุมชนนักพัฒนาที่กระตือรือร้น</div>
+                </div>
+              </div>
+              <div className="w-full md:w-1/2 p-8 order-2 md:order-1 flex justify-center items-center">
+                <Image src="/solo_player.jpg" width={500} height={500} alt="image about" className="rounded-2xl" />
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white max-w-auto grow h-auto text-center text-black rounded-2xl p-4">
+            <div className="text-black  font-medium text-4xl mb-2 mt-4 ">เข้าร่วมกับ
+              <span className="bg-gradient-to-r from-red-600 via-purple-500 to-blue-400 inline-block text-transparent bg-clip-text p-1">
+                Code Battle
+              </span>
+              <span className="text-black  font-medium text-4xl mb-2 mt-4 p-1">เลย!</span>
+            </div>
+            <div className="text-black font-light text-md mb-4">พร้อมที่จะเข้าร่วมการต่อสู้ด้วยโค้ดแล้วหรือยัง? สมัครสมาชิกและเริ่มการแข่งขันของคุณได้เลย!</div>
+            <Link href="/login">
+              <button className="bg-gradient-to-r from-red-700 via-purple-600 to-blue-700 rounded-4xl pl-8 pr-8 p-3 mt-2 transition duration-500 ease-in-out hover:-translate-y-1 hover:scale-110 mb-4 text-white cursor-pointer">
+                เริ่มเลย
+              </button>
+            </Link>
+
+            <p className="text-black font-light text-xs mb-2">Powered by</p>
+            <div className="flex gap-2 flex-wrap justify-center items-center content-center mb-1 cursor-pointer">
+               
+              <Link href="/intro">
+                <button className="cursor-pointer relative  w-10 h-10">
+                  <Image src="/gapt.png" fill alt="GAPT" className="rounded-md object-cover" />
+                </button>
+              </Link>
+
+              <div className="border text-black h-8 w-[0.5px] mb-1"></div>
+              
+              <Link href="https://gamerneed.com/">
+                <button className="cursor-pointer relative  w-10 h-10">
+                  <Image src="/gamerNeed.jpg" fill alt="GamerNeed" className="rounded-md object-cover" />
+                </button>
+              </Link>
+
+              <a href="https://www.youtube.com/@realarchit.official">
+                <button className="cursor-pointer relative w-10 h-10">
+                  <Image src="/Realarchit.png" fill alt="Realarchit" className="rounded-md object-cover" />
+                </button>
+              </a>
+
+              <a href="https://shopee.co.th/pzmt_3dshop">
+                <button className="border-black border rounded-md cursor-pointer relative w-10 h-10">
+                  <Image src="/PZMT.jpg" fill alt="PZMT" className="rounded-md object-cover" />
+                </button>
+              </a>
+
+              <a href="https://www.facebook.com/profile.php?id=61575719904255">
+                <button className="rounded-md cursor-pointer relative w-10 h-10">
+                  <Image src="/Newtreedown.jpg" fill alt="treedowngame" className="rounded-md object-cover" />
+                </button>
+              </a>
+
+            </div>
+            <p className="text-gray-400 font-light text-xs">© {new Date().getFullYear()} Code Battle. สงวนลิขสิทธิ์.</p>
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+}
