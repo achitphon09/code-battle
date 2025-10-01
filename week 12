@@ -1,0 +1,56 @@
+  return (
+                  <tr key={roomId} className={`bg-black/50 border border-slate-900 ${isFull ? 'opacity-70' : ''}`}>
+                    <td className="px-6 py-4 font-light text-white">
+                      {room.roomName}
+                      {isFull && <span className="ml-2 text-red-400 text-sm">(เต็ม)</span>}
+                    </td>
+                    <td className="px-6 py-4 text-white font-light">
+                      {room.members?.length || 0} / {room.maxPlayers}
+                    </td>
+                    <td className="px-6 py-4">
+                      <Link 
+                        href={isFull ? '#' : `/room/${roomId}`}
+                        onClick={(e) => {
+                          if (isFull) {
+                            e.preventDefault();
+                            handleJoinRoom(roomId, room);
+                          }
+                        }}
+                      >
+                        <button 
+                          className={`px-4 py-2 rounded-md ${
+                            isFull 
+                              ? 'bg-gray-500 text-gray-300 cursor-not-allowed' 
+                              : 'bg-green-500 text-white hover:bg-green-600'
+                          }`}
+                          disabled={isFull}
+                        >
+                          {isFull ? 'เต็ม' : 'Join'}
+                        </button>
+                      </Link>
+                      
+                      <Link href={`/room/${roomId}`}>
+                        <button 
+                          className="px-4 py-2 m-4 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+                          onClick={() => handleSpectateRoom(roomId, room)}
+                        >
+                          Spectate
+                        </button>
+                      </Link>
+                    </td>
+                  </tr>
+                );
+              })
+            ) : (
+              <tr>
+                <td colSpan="3" className="px-6 py-4 text-center text-white">
+                  ไม่มีห้องแข่งขัน
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
