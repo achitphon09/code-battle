@@ -1,0 +1,91 @@
+{/* ส่วนแสดงผลลัพธ์การ Submission */}
+          {submissionResult && (
+            <div className={`rounded-2xl p-4 ${submissionResult.success ? 'bg-green-800' : 'bg-red-800'}`}>
+              <h1 className="text-4xl font-medium mb-3">
+                {submissionResult.success ? '✅ ผลลัพธ์: ผ่าน' : '❌ ผลลัพธ์: ไม่ผ่าน'}
+              </h1>
+              <p className="text-medium mb-3">** {submissionResult.message} **</p>
+
+              <h2 className="text-lg font-semibold mb-1">รายละเอียด Testcase :</h2>
+              <div className="space-y-2 max-h-48 overflow-y-auto">
+                {submissionResult.results?.map((result, index) => (
+                  <div key={index} className={`p-2 rounded-lg text-xs ${result.satisfied ? 'bg-green-400/50' : 'bg-red-400/50'}`}>
+                    <span className="font-bold mr-2">{result.satisfied ? '✅' : '❌'} Test {index + 1} :</span>
+                    <span className="break-all">{result.satisfied ? 'ผ่าน' : 'ไม่ผ่าน'}</span>
+                    {!result.satisfied && (
+                      <div className='mt-1 text-gray-200'>
+                        <div>**Input:** {result.testCaseInput}</div>
+                        <div>**Expected:** {result.expectedOutput}</div>
+                        <div>**Received:** {result.realOutput}</div>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+          {/* สิ้นสุดส่วนแสดงผลลัพธ์ */}
+
+          {currProblem.testcases?.length > 0 && (
+            <div className="bg-slate-700 rounded-2xl p-4">
+              <h1 className="text-xl font-medium">ตัวอย่าง</h1>
+              <div className="space-y-4 mt-2">
+                {currProblem.testcases.map((testcase, index) => (
+                  <div key={index} className="bg-slate-800 p-3 rounded-lg">
+                    <h3 className="font-semibold text-sm mb-1">ตัวอย่างที่ {index + 1}</h3>
+                    <div className="mt-2 text-sm">
+                      <h2 className="font-semibold">Input:</h2>
+                      <pre className="bg-slate-900 p-2 rounded-md mt-1 overflow-auto whitespace-pre-wrap">{testcase.input}</pre>
+                    </div>
+                    <div className="mt-2 text-sm">
+                      <h2 className="font-semibold">Output:</h2>
+                      <pre className="bg-slate-900 p-2 rounded-md mt-1 overflow-auto whitespace-pre-wrap">{testcase.output}</pre>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Submit Buttons */}
+          <div className="flex gap-4 mt-auto">
+            <button id='submitBtn'
+              onClick={handleSubmissionCode}
+              className={`
+              flex-1 bg-green-600 text-white p-3 rounded-lg font-medium 
+              hover:bg-green-700 transition-colors 
+              disabled:bg-gray-500
+              ${currProblem.passCheck ? 'cursor-not-allowed' : 'cursor-pointer'}
+              `}
+
+
+              disabled={(currProblem.passCheck) || (!currProblem._id) || isSubmitting}
+            >
+
+              {
+                isSubmitting
+                  ? 'กำลังประมวลผล...'
+                  : currProblem.passCheck
+                    ? '✅ ผ่านโจทย์นี้แล้ว'
+                    : 'ส่งคำตอบ'
+              }
+            </button>
+            {/* Next Problem Buttons */}
+            <button
+              onClick={goNextProblem}
+              className="flex-1 bg-blue-600 text-white p-3 rounded-lg font-medium hover:bg-blue-700 transition-colors cursor-pointer"
+            >
+              โจทย์ถัดไป
+            </button>
+          </div>
+        </div>
+
+        {/* Right Side: Code Editor Component */}
+        <div className="w-full md:w-1/2 lg:w-[60%] h-auto bg-slate-800 rounded-2xl p-4 mb-5">
+          <h1 className="text-white text-xl font-medium mb-2">โค้ดของคุณ: Javascript</h1>
+          <CodeEditor onCodeChange={setUserCode} />
+        </div>
+      </div>
+    </div>
+  );
+}
