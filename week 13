@@ -1,0 +1,25 @@
+"use client";
+import React, { useEffect, useRef } from 'react';
+import { CodeJar } from 'codejar';
+
+const CodeEditor = ({onCodeChange}) => {
+  const editorRef = useRef(null);
+
+  useEffect(() => {
+    const node = editorRef.current;
+    if (!node) return;
+
+    const highlight = (editor) => {
+      const code = editor.textContent;
+      editor.innerHTML = code.replace(/(const|let|var|function)/g, '<span style="color:aqua">$1</span>');
+    };
+
+    const jar = CodeJar(node, highlight);
+    jar.updateCode(`function solve(input) {
+  // เขียนโค้ดของคุณที่นี่
+}`);
+const handleInput = ()=>{
+  onCodeChange(node.textContent);
+
+}
+node.addEventListener('input',handleInput);
